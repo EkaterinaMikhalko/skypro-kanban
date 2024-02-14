@@ -3,27 +3,28 @@ import * as S from "./Cards.styled.js"
 
 function Cards({ title, topic, date }) {
   return (
-    <div className="cards">
-      <div className="cards__item">
-        <div className="cards__card card">
-          <div className="card__group">
+    <S.StyledCards>
+      <S.CardsItem>
+        <S.CardsCard>
+          {/* <div className="cards__card card"></div> */}
+          <S.CardGroup>
             <S.CardTopic $themeColor = {topicHeader[topic]}>
               <S.TopicText>{topic}</S.TopicText>
             </S.CardTopic>
             <a href="#popBrowse" target="_self">
-              <div className="card__btn">
+              <S.CardBtn>
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
+              </S.CardBtn>
             </a>
-          </div>
-          <div className="card__content">
+          </S.CardGroup>
+          <S.CardContent>
             <a href="" target="_blank">
               <h3 className="card__title">{title}</h3>
             </a>
-            <div className="card__date">
-              <svg
+            <S.CardDate>
+              <S.CardDateSvg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
                 height="13"
@@ -50,13 +51,13 @@ function Cards({ title, topic, date }) {
                     <rect width="13" height="13" fill="white" />
                   </clipPath>
                 </defs>
-              </svg>
-              <p>{date}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </S.CardDateSvg>
+              <S.CardDateP>{date}</S.CardDateP>
+            </S.CardDate>
+          </S.CardContent>
+        </S.CardsCard>
+      </S.CardsItem>
+    </S.StyledCards>
   );
 }
 export default Cards;
