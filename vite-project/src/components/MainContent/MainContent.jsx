@@ -1,15 +1,15 @@
-function MainContent ({children}) {
+import { Container } from "../../styled/common/styled.common";
+import { Main, MainBlock, StyledMainContent } from "./MainContent.styled";
+
+function MainContent({ children }) {
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
-            {children}
-            
-            </div>
-          </div>
-        </div>
-    </main>
+    <Main>
+      <Container>
+        <MainBlock>
+          <StyledMainContent>{children}</StyledMainContent>
+        </MainBlock>
+      </Container>
+    </Main>
   );
 }
 export default MainContent;
