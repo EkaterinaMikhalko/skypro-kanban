@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import * as S from "./LoginPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
+import { Wrapper } from "../../styled/common/styled.common";
 
 export default function Login() {
   return (
     <S.BodyLogin>
-      <S.Wrapper>
+      <Wrapper>
         <S.ContainerSignin>
           <S.Modal>
             <S.ModalBlock>
@@ -40,7 +41,7 @@ export default function Login() {
             </S.ModalBlock>
           </S.Modal>
         </S.ContainerSignin>
-      </S.Wrapper>
+      </Wrapper>
     </S.BodyLogin>
   );
 }
