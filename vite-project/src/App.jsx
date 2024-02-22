@@ -1,57 +1,36 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Column from "./components/Column/Column";
-import Header from "./components/Header/Header";
-import MainContent from "./components/MainContent/MainContent";
-import PopBrowse from "./components/popups/PopBrowse/PopBrowse";
-import PopExit from "./components/popups/PopExit/PopExit";
-import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
-import { cardList } from "./data";
+import { Routes, Route } from "react-router-dom";
+import { appRoutes } from "./lib/appRoutes";
+import Signup from "./pages/SignupPage/SignupPage";
+import NotFound from "./pages/NotFoundPage/NotFoundPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Login from "./pages/LoginPage/LoginPage";
+import MainPage from "./pages/MainPage/MainPage";
+import TaskPage from "./pages/TaskPage/TaskPage";
+import ExitPage from "./pages/ExitPage/ExitPage";
+import './App.css'
+import { useState } from "react";
 
-const statusList = [
-  "Без статуса",
-  "Нужно сделать",
-  "В работе",
-  "Тестирование",
-  "Готово",
-];
-function App() {
-  const [cards, setCards] = useState(cardList);
-  const [isLoading,setIsLoading] = useState (true)
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 секунды задержки
-  }, []);
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
-  return (
-    <>
-      <div className="wrapper">
-        <PopExit />
-        <PopNewCard />
-        <PopBrowse />
-        <Header addCard={addCard} />
-        {isLoading ? "Загрузка...": <MainContent>
-          {statusList.map((status) => (
-            <Column
-              title={status}
-              key={status}
-              cardList={cards.filter((card) => card.status === status)}
-            />
-          ))}
-        </MainContent>}
-      </div>
-    </>
-  );
+export default function App() {
+  const [ user, setUser ] = useState(true);
+function login () {
+  setUser (true);
 }
 
-export default App;
+function logout () {
+  setUser (false);
+}
+
+  return (
+    <Routes>
+      <Route element={<PrivateRoute user={user}/>}>
+        <Route path={appRoutes.MAIN} element={<MainPage/>}>
+        <Route path={appRoutes.TASK} element={<TaskPage/>}/>
+        <Route path={appRoutes.EXIT} element={<ExitPage logout={logout}/>}/>
+        </Route>
+      </Route>
+      <Route path={appRoutes.LOGIN} element={<Login login={login}/>} />
+      <Route path={appRoutes.SIGNUP} element={<Signup />} />
+      <Route path={appRoutes.NOT_FOUND} element={<NotFound />} />
+    </Routes>
+  );
+}
