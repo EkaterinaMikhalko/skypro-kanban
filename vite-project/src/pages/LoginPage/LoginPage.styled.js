@@ -59,7 +59,7 @@ export const ModalInput = styled.input`
   padding: 10px 8px;
 `
 
-export const ModalBtnEnter = styled.button`
+export const ModalBtnEnter = styled.span`
   width: 100%;
   height: 30px;
   background-color: #565EEF;

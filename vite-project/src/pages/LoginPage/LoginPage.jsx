@@ -3,7 +3,7 @@ import * as S from "./LoginPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { Wrapper } from "../../styled/common/styled.common";
 
-export default function Login() {
+export default function Login(login) {
   return (
     <S.BodyLogin>
       <Wrapper>
@@ -26,7 +26,7 @@ export default function Login() {
                   id="formpassword"
                   placeholder="Пароль"
                 />
-                <S.ModalBtnEnter>
+                <S.ModalBtnEnter onClick={login}>
                   <Link to={appRoutes.MAIN}>Войти</Link>
                 </S.ModalBtnEnter>
                 <S.ModalFormGroup>
