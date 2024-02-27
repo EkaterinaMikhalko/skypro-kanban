@@ -1,11 +1,15 @@
-function PopBrowse () {
+import { Link, useParams } from "react-router-dom"
+import { appRoutes } from "../../../lib/appRoutes";
+
+export default function PopBrowse () {
+  const {id} = useParams ();
     return (
         <div className="pop-browse" id="popBrowse">
         <div className="pop-browse__container">
           <div className="pop-browse__block">
             <div className="pop-browse__content">
               <div className="pop-browse__top-block">
-                <h3 className="pop-browse__ttl">Название задачи</h3>
+                <h3 className="pop-browse__ttl">Название задачи {id}</h3>
                 <div className="categories__theme theme-top _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
@@ -177,9 +181,11 @@ function PopBrowse () {
                     <a href="#">Удалить задачу</a>
                   </button>
                 </div>
-                <button className="btn-browse__close _btn-bg _hover01">
-                  <a href="#">Закрыть</a>
-                </button>
+                <Link to={appRoutes.MAIN}>
+                <span className="btn-browse__close _btn-bg _hover01">
+                 Закрыть
+                </span>
+                </Link>
               </div>
               <div className="pop-browse__btn-edit _hide">
                 <div className="btn-group">
@@ -206,4 +212,3 @@ function PopBrowse () {
       </div>
     )
 }
-export default PopBrowse
