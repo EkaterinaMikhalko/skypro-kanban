@@ -2,8 +2,30 @@ import { Link } from "react-router-dom";
 import * as S from "./LoginPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { Wrapper } from "../../styled/common/styled.common";
+import { useState } from "react";
+import { signIn } from "../../api";
 
-export default function Login(login) {
+export default function Login({ login }) {
+  const [loginData, setLoginData] = useState({
+    login: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target; // Извлекаем имя поля и его значение
+
+    setLoginData({
+      ...loginData, // Копируем текущие данные из состояния
+      [name]: value, // Обновляем нужное поле
+    });
+  };
+
+  const handleLogin = async () => {
+    await signIn(loginData).then((data) => {
+      login(data.user);
+    });
+  };
+
   return (
     <S.BodyLogin>
       <Wrapper>
@@ -15,20 +37,22 @@ export default function Login(login) {
               </S.ModalTitle>
               <S.ModalFormLogin action="#">
                 <S.ModalInput
+                  value={loginData.login}
+                  onChange={handleInputChange}
                   type="text"
                   name="login"
                   id="formlogin"
                   placeholder="Эл. почта"
                 />
                 <S.ModalInput
+                  value={loginData.password}
+                  onChange={handleInputChange}
                   type="password"
                   name="password"
                   id="formpassword"
                   placeholder="Пароль"
                 />
-                <S.ModalBtnEnter onClick={login}>
-                  <Link to={appRoutes.MAIN}>Войти</Link>
-                </S.ModalBtnEnter>
+                <S.ModalBtnEnter onClick={handleLogin}>Войти</S.ModalBtnEnter>
                 <S.ModalFormGroup>
                   <S.ModalFormGroupP>
                     Нужно зарегистрироваться?
