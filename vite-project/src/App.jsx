@@ -21,6 +21,7 @@ export default function App() {
 
   function logout() {
     setUser(null);
+    navigate(appRoutes.LOGIN)
   }
 
   return (

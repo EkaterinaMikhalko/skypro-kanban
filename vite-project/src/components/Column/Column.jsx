@@ -7,13 +7,13 @@ export default function Column({ title, cardList }) {
       <ColumnTitle>
         <p>{title}</p>
       </ColumnTitle>
-      {cardList.map((card) => (
+      {cardList.map((task) => (
         <Cards
-          title={card.title}
-          topic={card.topic}
-          date={card.date}
-          key={card._id}
-          id={card._id}
+          title={task.title}
+          topic={task.topic}
+          date={task.date}
+          key={task._id}
+          id={task.id}
         />
       ))}
     </MainColumn>

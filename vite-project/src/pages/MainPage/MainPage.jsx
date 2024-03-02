@@ -17,11 +17,14 @@ export default function MainPage({ user }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getTodos({ token: user.token }).then((todos) => {
-      setCards(todos.tasks);
-      setIsLoading(false);
-      console.log (cards);
-    });
+    getTodos({ token: user.token })
+      .then((todos) => {
+        setCards(todos.tasks);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }, [user]);
   // useEffect(() => {
   //   setTimeout(() => {
