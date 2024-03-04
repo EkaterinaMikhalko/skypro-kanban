@@ -2,6 +2,7 @@
 
 const baseHost = "https://wedev-api.sky.pro/api/kanban";
 const userHost = "https://wedev-api.sky.pro/api/user"
+
 // Авторизация
 
 export function signIn({ login, password }) {
@@ -34,4 +35,22 @@ export async function getTodos ({token}) {
     const data = await response.json();
     return data;
 }
+
+//Регистрация
+
+export function signUpApi({ login, name, password }) {
+    return fetch(userHost, {
+      method: "POST",
+      body: JSON.stringify({
+        login,
+        name,
+        password,
+      }),
+    }).then((response) => {
+      if (response.status === 400) {
+        throw new Error("Пользователь уже существует");
+      }
+      return response.json();
+    });
+  }
 
