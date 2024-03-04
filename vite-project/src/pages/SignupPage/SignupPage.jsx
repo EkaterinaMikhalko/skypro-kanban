@@ -25,6 +25,9 @@ export default function Signup({login}) {
     e.preventDefault();
     await signUpApi(signupData).then((data) => {
       login(data.user);
+    })
+    .catch((error) => {
+      alert(error);
     });
   };
   return (

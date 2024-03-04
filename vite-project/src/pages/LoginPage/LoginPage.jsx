@@ -23,6 +23,9 @@ export default function Login({ login }) {
   const handleLogin = async () => {
     await signIn(loginData).then((data) => {
       login(data.user);
+    })
+    .catch((error) => {
+      alert(error);
     });
   };
 
