@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Wrapper } from "../../styled/common/styled.common";
 import * as S from "./SignupPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { signUpApi } from "../../api";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 
-export default function Signup({login}) {
+export default function Signup() {
+  const {login} = useUser();
+  const navigate = useNavigate ();
   const [signupData, setSignupData] = useState({
     login: "",
     name: "",
@@ -25,6 +28,7 @@ export default function Signup({login}) {
     e.preventDefault();
     await signUpApi(signupData).then((data) => {
       login(data.user);
+      navigate (appRoutes.MAIN);
     })
     .catch((error) => {
       alert(error);
