@@ -54,3 +54,24 @@ export function signUpApi({ login, name, password }) {
     });
   }
 
+  // Добавление задачи
+
+  export async function postTodo ({task, token}) {
+    const response = await fetch (baseHost, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+        method: "POST",
+        body: JSON.stringify({
+          task,
+        })
+    });
+
+    if (!response.status === 201) {
+        throw new Error ("Ошибка");
+    }
+
+    const data = await response.json();
+    return data;
+}
+

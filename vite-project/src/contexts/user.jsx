@@ -12,6 +12,7 @@ function getUserFromLocalStorage () {
 export const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(getUserFromLocalStorage());
+  
   function login (newUser) {
     setUser (newUser)
     localStorage.setItem ("user", JSON.stringify (newUser))
@@ -21,6 +22,7 @@ export const UserProvider = ({ children }) => {
     setUser (null)
     localStorage.removeItem ("user")
   }
+
 
   return (
   <UserContext.Provider value={{user, login, logout}}>

@@ -4,7 +4,7 @@ import { Container } from "../../styled/common/styled.common";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
 
-export default function Header({ addCard }) {
+export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
     setIsOpened((prev) => !prev);
@@ -24,8 +24,10 @@ export default function Header({ addCard }) {
             </Link>
           </S.HeaderLogoDark>
           <S.HeaderNav>
-            <S.HeaderBtnMainNew onClick={addCard} id="btnMainNew">
+            <S.HeaderBtnMainNew id="btnMainNew">
+              <Link to={appRoutes.NEWTASK}>
               Создать новую задачу
+              </Link>
             </S.HeaderBtnMainNew>
             <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
             {isOpened && (

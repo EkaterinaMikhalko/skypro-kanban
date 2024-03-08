@@ -1,17 +1,38 @@
 import { useState } from "react";
 import Calendar from "../../Calendar/Calendar";
 import * as S from "./PopNewCard.styled";
+import { postTodo } from "../../../api";
+import { useUser } from "../../../hooks/useUser";
+import { useNavigate } from "react-router-dom";
+import { appRoutes } from "../../../lib/appRoutes";
 
 export default function PopNewCard() {
-  const { newTask, setNewTask } = useState({
+  const {user} = useUser ();
+  // const {tasks} = useTask();
+  const navigate = useNavigate();
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [newTask, setNewTask] = useState({
     title: "",
     description: "",
     topic: "",
   });
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log (newTask)
+  const handleFormSubmit = async () => {
+    const TaskData = {
+      ...newTask,
+      date: selectedDate,
+    };
+    console.log(TaskData);
+    await postTodo({
+      task: TaskData,
+      token: user.token,
+    })
+      .then(() => {
+        navigate(appRoutes.MAIN);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
@@ -21,6 +42,7 @@ export default function PopNewCard() {
       [name]: value, // Обновляем нужное поле
     });
   };
+
   return (
     <S.PopNewCardDiv id="popNewCard">
       <S.PopNewCardContainer>
@@ -53,7 +75,10 @@ export default function PopNewCard() {
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar />
+              <Calendar
+                selectedDate={selectedDate}
+                setSelectedDate={setSelectedDate}
+              />
             </S.PopNewCardWrap>
 
             <div className="prod_checbox">
@@ -101,7 +126,9 @@ export default function PopNewCard() {
                 </div>
               </div>
             </div> */}
-            <S.FormNewCreate onClick = {handleFormSubmit} id="btnCreate">Создать задачу</S.FormNewCreate>
+            <S.FormNewCreate onClick={handleFormSubmit} id="btnCreate">
+              Создать задачу
+            </S.FormNewCreate>
           </S.PopNewCardContent>
         </S.PopNewCardBlock>
         .

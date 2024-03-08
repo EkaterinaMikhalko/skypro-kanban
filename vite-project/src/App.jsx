@@ -6,6 +6,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Login from "./pages/LoginPage/LoginPage";
 import MainPage from "./pages/MainPage/MainPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
+import NewTaskPage from "./pages/NewTaskPage/NewTaskPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
 import "./App.css";
 
@@ -17,6 +18,7 @@ export default function App() {
         <Route path={appRoutes.MAIN} element={<MainPage/>}>
           <Route path={appRoutes.TASK} element={<TaskPage />} />
           <Route path={appRoutes.EXIT} element={<ExitPage />} />
+          <Route path={appRoutes.NEWTASK} element={<NewTaskPage />} />
         </Route>
       </Route>
       <Route path={appRoutes.LOGIN} element={<Login />} />

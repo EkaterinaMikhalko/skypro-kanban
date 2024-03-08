@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PopNewCardDiv = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   min-width: 375px;
   height: 100%;
@@ -109,7 +109,7 @@ export const FormNewInput = styled.input`
   }
 `;
 
-export const FormNewArea = styled.div`
+export const FormNewArea = styled.input`
   width: 100%;
   outline: none;
   padding: 14px;
@@ -151,6 +151,6 @@ export const FormNewCreate = styled.span`
   color: #ffffff;
   float: right;
   &:hover {
-  background-color: #33399b;
-}
-`
+    background-color: #33399b;
+  }
+`;

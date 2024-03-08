@@ -58,41 +58,12 @@ export default function PopBrowse() {
               <Calendar />
             </div>
 
-            <div className="prod_checbox">
-              <div className="radio-toolbar">
-                <input
-                  type="radio"
-                  id="radio1"
-                  name="radios"
-                  value="Web Design"
-                  checked
-                />
-                <label htmlFor="radio1">Web Design</label>
-
-                <input
-                  type="radio"
-                  id="radio2"
-                  name="radios"
-                  value="Research"
-                />
-                <label htmlFor="radio2">Research</label>
-
-                <input
-                  type="radio"
-                  id="radio3"
-                  name="radios"
-                  value="Copywriting"
-                />
-                <label htmlFor="radio3">Copywriting</label>
-              </div>
-            </div>
-
-            {/* <div className="theme-down__categories theme-down">
+            <div className="theme-down__categories theme-down">
                 <p className="categories__p subttl">Категория</p>
                 <div className="categories__theme _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
-              </div> */}
+              </div>
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
                 <button className="btn-browse__edit _btn-bor _hover03">

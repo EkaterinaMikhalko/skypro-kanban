@@ -16,7 +16,7 @@ const statusList = [
 export default function MainPage() {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const {user} = useUser()
+  const { user } = useUser();
 
   useEffect(() => {
     getTodos({ token: user.token })
@@ -34,21 +34,21 @@ export default function MainPage() {
   //   }, 2000); // 2 секунды задержки
   // }, []);
 
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
+
+  // function addCard(cards,setCards) {
+  //   const newCard = {
+  //     id: cards.length + 1,
+  //   };
+  //   setCards([...cards, newCard]);
+  //}
+
   return (
     <>
       <div className="wrapper">
         <Outlet />
-        <Header addCard={addCard} />
+        <Header
+        // addCard={addCard}
+        />
         {isLoading ? (
           "Загрузка..."
         ) : (
