@@ -154,3 +154,31 @@ export const FormNewCreate = styled.span`
     background-color: #33399b;
   }
 `;
+
+export const ProdCheckbox = styled.div`
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+`;
+
+export const RadioToolbar = styled.div`
+  /* display: none; */
+`;
+
+export const RadioToolBarInput = styled.input`
+display: none;
+`
+
+export const RadioToolBarLabel = styled.label`
+    display: inline-block;
+    padding: 2px 9px;
+    cursor: pointer;
+    border: 1px solid #DAD0FF;
+    &:hover {
+    background-color: #d0ffb7;
+    border: 1px solid #1CA92E;
+}
+`
+

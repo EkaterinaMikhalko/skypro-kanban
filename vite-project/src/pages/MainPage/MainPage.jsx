@@ -41,7 +41,6 @@ export default function MainPage() {
   //   };
   //   setCards([...cards, newCard]);
   //}
-
   return (
     <>
       <div className="wrapper">

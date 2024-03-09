@@ -81,36 +81,36 @@ export default function PopNewCard() {
               />
             </S.PopNewCardWrap>
 
-            <div className="prod_checbox">
-              <div className="radio-toolbar">
-                <input
+            <S.ProdCheckbox>
+              <S.RadioToolbar>
+                <S.RadioToolBarInput
                   type="radio"
                   id="radio1"
                   name="topic"
                   value="Web Design"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio1">Web Design</label>
+                <S.RadioToolBarLabel htmlFor="radio1">Web Design</S.RadioToolBarLabel>
 
-                <input
+                <S.RadioToolBarInput
                   type="radio"
                   id="radio2"
                   name="topic"
                   value="Research"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio2">Research</label>
+                <S.RadioToolBarLabel htmlFor="radio2">Research</S.RadioToolBarLabel>
 
-                <input
+                <S.RadioToolBarInput
                   type="radio"
                   id="radio3"
                   name="topic"
                   value="Copywriting"
                   onChange={handleInputChange}
                 />
-                <label htmlFor="radio3">Copywriting</label>
-              </div>
-            </div>
+                <S.RadioToolBarLabel htmlFor="radio3">Copywriting</S.RadioToolBarLabel>
+              </S.RadioToolbar>
+            </S.ProdCheckbox>
 
             {/* <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>

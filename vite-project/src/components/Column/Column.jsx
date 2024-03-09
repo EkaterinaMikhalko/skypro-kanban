@@ -2,6 +2,7 @@ import Cards from "../Cards/Cards";
 import { ColumnTitle, MainColumn } from "./Column.styled";
 
 export default function Column({ title, cardList }) {
+  console.log(cardList);
   return (
     <MainColumn>
       <ColumnTitle>
@@ -13,7 +14,7 @@ export default function Column({ title, cardList }) {
           topic={task.topic}
           date={task.date}
           key={task._id}
-          id={task.id}
+          id={task._id}
         />
       ))}
     </MainColumn>
