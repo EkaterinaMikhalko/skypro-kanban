@@ -2,7 +2,6 @@ import Cards from "../Cards/Cards";
 import { ColumnTitle, MainColumn } from "./Column.styled";
 
 export default function Column({ title, cardList }) {
-  console.log(cardList);
   return (
     <MainColumn>
       <ColumnTitle>

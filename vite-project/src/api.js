@@ -21,7 +21,7 @@ export function signIn({ login, password }) {
 }
 
 //Получение списка задач
-export async function getTodos ({token}) {
+export async function getTodos ({token}) { 
     const response = await fetch (baseHost, {
         headers: {
             Authorization: `Bearer ${token}`
@@ -62,9 +62,13 @@ export function signUpApi({ login, name, password }) {
             Authorization: `Bearer ${token}`
         },
         method: "POST",
-        body: JSON.stringify({
-          task,
-        })
+        // JSON.stingify принимает в себя объект 
+        // task - уже объект, поэтому фигурные скобки не нужны
+        body: JSON.stringify(task)
+        // body: JSON.stringify({
+           // name,
+          //  text
+        // })
     });
 
     if (!response.status === 201) {

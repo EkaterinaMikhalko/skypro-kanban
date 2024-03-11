@@ -3,13 +3,12 @@ import Calendar from "../../Calendar/Calendar";
 import * as S from "./PopNewCard.styled";
 import { postTodo } from "../../../api";
 import { useUser } from "../../../hooks/useUser";
-import { useNavigate } from "react-router-dom";
-import { appRoutes } from "../../../lib/appRoutes";
+import { useTask } from "../../../hooks/useTasks";
 
 export default function PopNewCard() {
-  const {user} = useUser ();
+  const {updateTasks} = useTask ();
+  const { user } = useUser();
   // const {tasks} = useTask();
-  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [newTask, setNewTask] = useState({
     title: "",
@@ -27,8 +26,8 @@ export default function PopNewCard() {
       task: TaskData,
       token: user.token,
     })
-      .then(() => {
-        navigate(appRoutes.MAIN);
+      .then((data) => {
+        updateTasks (data.tasks);
       })
       .catch((error) => {
         alert(error);
@@ -90,7 +89,9 @@ export default function PopNewCard() {
                   value="Web Design"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio1">Web Design</S.RadioToolBarLabel>
+                <S.RadioToolBarLabel htmlFor="radio1">
+                  Web Design
+                </S.RadioToolBarLabel>
 
                 <S.RadioToolBarInput
                   type="radio"
@@ -99,7 +100,9 @@ export default function PopNewCard() {
                   value="Research"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio2">Research</S.RadioToolBarLabel>
+                <S.RadioToolBarLabel htmlFor="radio2">
+                  Research
+                </S.RadioToolBarLabel>
 
                 <S.RadioToolBarInput
                   type="radio"
@@ -108,7 +111,9 @@ export default function PopNewCard() {
                   value="Copywriting"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio3">Copywriting</S.RadioToolBarLabel>
+                <S.RadioToolBarLabel htmlFor="radio3">
+                  Copywriting
+                </S.RadioToolBarLabel>
               </S.RadioToolbar>
             </S.ProdCheckbox>
 

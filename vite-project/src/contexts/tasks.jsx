@@ -13,10 +13,10 @@ import { appRoutes } from "../lib/appRoutes";
 
 export const TaskContext = createContext(null);
 export const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState(null);
+  const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
-  function updateTasks(data) {
-    setTasks(data.tasks);
+  function updateTasks(tasks) {
+    setTasks(tasks);
     navigate(appRoutes.MAIN);
     // localStorage.setItem("task", JSON.stringify(task));
   }
