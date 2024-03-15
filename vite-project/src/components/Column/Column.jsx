@@ -13,7 +13,7 @@ export default function Column({ title, cardList }) {
           topic={task.topic}
           date={task.date}
           key={task._id}
-          id={task.id}
+          id={task._id}
         />
       ))}
     </MainColumn>

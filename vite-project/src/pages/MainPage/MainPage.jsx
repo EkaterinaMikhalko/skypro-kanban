@@ -4,6 +4,8 @@ import MainContent from "../../components/MainContent/MainContent";
 import Column from "../../components/Column/Column";
 import { Outlet } from "react-router-dom";
 import { getTodos } from "../../api";
+import { useUser } from "../../hooks/useUser";
+import { useTask } from "../../hooks/useTasks";
 
 const statusList = [
   "Без статуса",
@@ -12,41 +14,29 @@ const statusList = [
   "Тестирование",
   "Готово",
 ];
-export default function MainPage({ user }) {
-  const [cards, setCards] = useState([]);
+export default function MainPage() {
+  const {updateTasks, tasks} = useTask ();
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useUser();
 
   useEffect(() => {
     getTodos({ token: user.token })
       .then((todos) => {
-        setCards(todos.tasks);
+        updateTasks(todos.tasks);
         setIsLoading(false);
       })
       .catch((error) => {
         alert(error);
       });
   }, [user]);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000); // 2 секунды задержки
-  // }, []);
 
-  function addCard() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
-      title: "Название задачи",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
   return (
     <>
       <div className="wrapper">
         <Outlet />
-        <Header addCard={addCard} />
+        <Header
+        // addCard={addCard}
+        />
         {isLoading ? (
           "Загрузка..."
         ) : (
@@ -55,7 +45,7 @@ export default function MainPage({ user }) {
               <Column
                 title={status}
                 key={status}
-                cardList={cards.filter((card) => card.status === status)}
+                cardList={tasks.filter((card) => card.status === status)}
               />
             ))}
           </MainContent>

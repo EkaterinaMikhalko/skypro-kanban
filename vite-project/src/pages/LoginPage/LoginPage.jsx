@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./LoginPage.styled";
 import { appRoutes } from "../../lib/appRoutes";
 import { Wrapper } from "../../styled/common/styled.common";
 import { useState } from "react";
 import { signIn } from "../../api";
+import { useUser } from "../../hooks/useUser";
 
-export default function Login({ login }) {
+export default function Login() {
+  const {login} = useUser()
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     login: "",
     password: "",
@@ -23,6 +26,7 @@ export default function Login({ login }) {
   const handleLogin = async () => {
     await signIn(loginData).then((data) => {
       login(data.user);
+      navigate (appRoutes.MAIN);
     })
     .catch((error) => {
       alert(error);

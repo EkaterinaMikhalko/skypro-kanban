@@ -5,5 +5,6 @@ export const appRoutes = {
     SIGNUP: '/signup',
     EXIT: '/exit',
     NOT_FOUND: '*',
+    NEWTASK:'/task',
 
 }

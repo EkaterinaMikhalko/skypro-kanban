@@ -21,7 +21,7 @@ export function signIn({ login, password }) {
 }
 
 //Получение списка задач
-export async function getTodos ({token}) {
+export async function getTodos ({token}) { 
     const response = await fetch (baseHost, {
         headers: {
             Authorization: `Bearer ${token}`
@@ -53,4 +53,29 @@ export function signUpApi({ login, name, password }) {
       return response.json();
     });
   }
+
+  // Добавление задачи
+
+  export async function postTodo ({task, token}) {
+    const response = await fetch (baseHost, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+        method: "POST",
+        // JSON.stingify принимает в себя объект 
+        // task - уже объект, поэтому фигурные скобки не нужны
+        body: JSON.stringify(task)
+        // body: JSON.stringify({
+           // name,
+          //  text
+        // })
+    });
+
+    if (!response.status === 201) {
+        throw new Error ("Ошибка");
+    }
+
+    const data = await response.json();
+    return data;
+}
 
