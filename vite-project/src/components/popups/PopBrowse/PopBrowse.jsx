@@ -1,23 +1,51 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { appRoutes } from "../../../lib/appRoutes";
-import * as S from "../PopBrowse/PopBrowse.styled"
+import * as S from "../PopBrowse/PopBrowse.styled";
 import { useTask } from "../../../hooks/useTasks";
 import CalendarForCurrentTask from "../../Calendar/CalendarForCurrentTask";
+import { changeTodo, delTodo } from "../../../api";
+import { useUser } from "../../../hooks/useUser";
 
 export default function PopBrowse() {
-  const {tasks} = useTask ();
+  const { tasks, updateTasks } = useTask();
   const { id } = useParams();
-  let currentTask = tasks.find((item) => item._id === id );
+  const { user } = useUser();
+  let currentTask = tasks.find((item) => item._id === id);
+
   if (!currentTask) {
-    return (<Navigate to={appRoutes.MAIN}/>)
+    return <Navigate to={appRoutes.MAIN} />;
   }
+  const delCard = async (e) => {
+    try {
+      e.preventDefault();
+
+      await delTodo({ token: user.token, id }).then((data) => {
+        updateTasks(data.tasks);
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const changeCard = async (e) => {
+    try {
+      e.preventDefault();
+      await changeTodo({ token: user.token, id }).then((data) => {
+        updateTasks(data.tasks);
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
   return (
     <S.PopBrowse id="popBrowse">
       <S.PopBrowseContainer>
         <S.PopBrowseBlock>
           <S.PopBrowseContent>
             <S.PopBrowseTopBlock>
-              <S.PopBrowseTtl>Название задачи {currentTask.title}</S.PopBrowseTtl>
+              <S.PopBrowseTtl>
+                Название задачи {currentTask.title}
+              </S.PopBrowseTtl>
               <S.CategoriesTheme>
                 <p className="_orange">{currentTask.topic}</p>
               </S.CategoriesTheme>
@@ -31,20 +59,17 @@ export default function PopBrowse() {
               </S.StatusThemes>
             </S.PopBrowseStatus>
             <S.PopBrowseWrap>
-              <S.PopBrowseForm
-                id="formBrowseCard"
-                action="#"
-              >
+              <S.PopBrowseForm id="formBrowseCard" action="#">
                 <S.FormBrowseBlock>
-                  <S.Subttl htmlFor="textArea01">
-                    Описание задачи
-                  </S.Subttl>
+                  <S.Subttl htmlFor="textArea01">Описание задачи</S.Subttl>
                   <S.FormBrowseArea
                     name="text"
                     id="textArea01"
                     readOnly
                     // placeholder="Введите описание задачи..."
-                  >{currentTask.description}</S.FormBrowseArea>
+                  >
+                    {currentTask.description}
+                  </S.FormBrowseArea>
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
               <CalendarForCurrentTask />
@@ -58,10 +83,10 @@ export default function PopBrowse() {
               </div> */}
             <S.PopBrowseBtnBrowse>
               <S.BtnGroup>
-                <S.BtnBrowse>
+                <S.BtnBrowse onClick={changeCard}>
                   <Link>Редактировать задачу</Link>
                 </S.BtnBrowse>
-                <S.BtnBrowse>
+                <S.BtnBrowse onClick={delCard}>
                   <Link>Удалить задачу</Link>
                 </S.BtnBrowse>
               </S.BtnGroup>

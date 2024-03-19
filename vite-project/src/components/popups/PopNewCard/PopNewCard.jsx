@@ -6,7 +6,7 @@ import { useUser } from "../../../hooks/useUser";
 import { useTask } from "../../../hooks/useTasks";
 
 export default function PopNewCard() {
-  const {updateTasks} = useTask ();
+  const { updateTasks } = useTask();
   const { user } = useUser();
   // const {tasks} = useTask();
   const [selectedDate, setSelectedDate] = useState(null);
@@ -27,7 +27,7 @@ export default function PopNewCard() {
       token: user.token,
     })
       .then((data) => {
-        updateTasks (data.tasks);
+        updateTasks(data.tasks);
       })
       .catch((error) => {
         alert(error);
