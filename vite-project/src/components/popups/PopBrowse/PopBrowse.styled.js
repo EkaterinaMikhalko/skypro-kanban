@@ -55,6 +55,13 @@ export const PopBrowseTtl = styled.h3`
   line-height: 24px;
 `;
 
+export const PopBrowseTtlInput = styled.input`
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+`;
+
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
@@ -159,6 +166,35 @@ export const FormBrowseArea = styled.span`
   }
 `;
 
+export const FormBrowseAreaEdit = styled.input`
+  max-width: 370px;
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: #eaeef6;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  margin-top: 14px;
+  height: 200px;
+  &::-moz-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+`;
+
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -192,3 +228,67 @@ export const BtnBrowse = styled.button`
   }
 `;
 
+export const BtnBrowseClose = styled.span`
+  border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  &:hover {
+    background-color: #33399b;
+  }
+`;
+export const PopBrowseBtnEdit = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 8px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0 14px;
+  width: 100%;
+  height: 40px;
+`;
+
+export const BtnEditEdit = styled.span`
+  border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  &:hover {
+    background-color: #33399b;
+  }
+`;
+export const BtnEditCancel = styled.span`
+  border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  &:hover {
+    background-color: #33399b;
+    color: #ffffff;
+  }
+`;
+
+export const BtnEditClose = styled.span`
+  border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  :hover {
+    background-color: #33399b;
+  }
+`;
+
+export const RadioToolbar = styled.div`
+`
+
+export const RadioToolBarInput = styled.input`
+`
+
+export const RadioToolBarLabel = styled.label`
+`

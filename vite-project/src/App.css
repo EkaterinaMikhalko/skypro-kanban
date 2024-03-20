@@ -744,13 +744,13 @@ pop-browse__wrap
   color: #565eef;
 } */
 
-._btn-bg {
+/* ._btn-bg {
   border-radius: 4px;
   background: #565eef;
   border: none;
   outline: none;
   color: #ffffff;
-}
+} */
 ._btn-bg a {
   color: #ffffff;
 }
