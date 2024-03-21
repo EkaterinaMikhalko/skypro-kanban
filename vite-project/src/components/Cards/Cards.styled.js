@@ -5,6 +5,12 @@ export const StyledCards = styled.div`
   width: 100%;
   display: block;
   position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  &:visited {
+    text-decoration: none;
+    cursor: pointer;
+  }
   @media screen and (max-width: 1200px) {
     width: 100%;
     display: flex;

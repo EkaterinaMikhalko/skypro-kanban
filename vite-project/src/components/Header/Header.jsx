@@ -3,8 +3,11 @@ import * as S from "./Header.styled";
 import { Container } from "../../styled/common/styled.common";
 import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
+import { useUser } from "../../hooks/useUser";
 
 export default function Header() {
+  const { user } = useUser();
+  console.log (user)
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
     setIsOpened((prev) => !prev);
@@ -29,16 +32,16 @@ export default function Header() {
               Создать новую задачу
               </Link>
             </S.HeaderBtnMainNew>
-            <S.HeaderUser onClick={togglePopup}>Ivan Ivanov</S.HeaderUser>
+            <S.HeaderUser onClick={togglePopup}>{user.name}</S.HeaderUser>
             {isOpened && (
               <S.HeaderPopUserSet id="user-set-target">
-                <Link>x</Link>
-                <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-                <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
-                <S.PopUserSetTheme>
+                <Link onClick={togglePopup}>x</Link>
+                <S.PopUserSetName>{user.name}</S.PopUserSetName>
+                <S.PopUserSetMail>{user.login}</S.PopUserSetMail>
+                {/* <S.PopUserSetTheme>
                   <S.PopUserSetThemeText>Темная тема</S.PopUserSetThemeText>
                   <S.PopUserSetThemeInput type="checkbox" name="checkbox" />
-                </S.PopUserSetTheme>
+                </S.PopUserSetTheme> */}
                 <S.ExitButton type="button">
                   <Link to={appRoutes.EXIT}>Выйти</Link>
                 </S.ExitButton>
