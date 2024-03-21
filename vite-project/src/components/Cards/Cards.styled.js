@@ -10,7 +10,6 @@ export const StyledCards = styled.div`
     display: flex;
     overflow-y: auto;
   }
-  
 `;
 export const CardsItem = styled.div`
   padding: 5px;
@@ -72,7 +71,7 @@ export const CardBtnDiv = styled.div`
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #94A6BE;
+  background-color: #94a6be;
 `;
 
 export const CardContent = styled.div`
@@ -89,7 +88,7 @@ export const CardTitle = styled.h3`
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;
-`
+`;
 
 export const CardDate = styled.div`
   display: flex;
