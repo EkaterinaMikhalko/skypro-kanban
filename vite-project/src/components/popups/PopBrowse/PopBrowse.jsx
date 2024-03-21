@@ -23,16 +23,6 @@ export default function PopBrowse() {
     status: currentTask.status,
   });
 
-  const [status, setStatus] = useState(currentTask.status);
-
-  const statusList = [
-    "Без статуса",
-    "Нужно сделать",
-    "В работе",
-    "Тестирование",
-    "Готово",
-  ];
-
   if (!currentTask) {
     return <Navigate to={appRoutes.MAIN} />;
   }
@@ -111,65 +101,65 @@ export default function PopBrowse() {
             </S.PopBrowseTopBlock>
             <S.PopBrowseStatus>
               <S.StatusPSubttl>Статус</S.StatusPSubttl>
-              {isEdit ? (<>
-                <S.RadioToolbar>
-                <S.RadioToolBarInput
-                  type="radio"
-                  id="radio1"
-                  name="status"
-                  value="Без статуса"
-                  onChange={handleInputChange}
-                />
-                <S.RadioToolBarLabel htmlFor="radio1">
-                Без статуса
-                </S.RadioToolBarLabel>
+              {isEdit ? (
+                <>
+                  <S.RadioToolbar>
+                    <S.RadioToolBarInput
+                      type="radio"
+                      id="radio1"
+                      name="status"
+                      value="Без статуса"
+                      onChange={handleInputChange}
+                    />
+                    <S.RadioToolBarLabel htmlFor="radio1">
+                      Без статуса
+                    </S.RadioToolBarLabel>
 
-                <S.RadioToolBarInput
-                  type="radio"
-                  id="radio2"
-                  name="status"
-                  value="Нужно сделать"
-                  onChange={handleInputChange}
-                />
-                <S.RadioToolBarLabel htmlFor="radio2">
-                Нужно сделать
-                </S.RadioToolBarLabel>
+                    <S.RadioToolBarInput
+                      type="radio"
+                      id="radio2"
+                      name="status"
+                      value="Нужно сделать"
+                      onChange={handleInputChange}
+                    />
+                    <S.RadioToolBarLabel htmlFor="radio2">
+                      Нужно сделать
+                    </S.RadioToolBarLabel>
 
-                <S.RadioToolBarInput
-                  type="radio"
-                  id="radio3"
-                  name="status"
-                  value="В работе"
-                  onChange={handleInputChange}
-                />
-                <S.RadioToolBarLabel htmlFor="radio3">
-                В работе
-                </S.RadioToolBarLabel>
+                    <S.RadioToolBarInput
+                      type="radio"
+                      id="radio3"
+                      name="status"
+                      value="В работе"
+                      onChange={handleInputChange}
+                    />
+                    <S.RadioToolBarLabel htmlFor="radio3">
+                      В работе
+                    </S.RadioToolBarLabel>
 
-                <S.RadioToolBarInput
-                  type="radio"
-                  id="radio3"
-                  name="status"
-                  value="Тестирование"
-                  onChange={handleInputChange}
-                />
-                <S.RadioToolBarLabel htmlFor="radio3">
-                Тестирование
-                </S.RadioToolBarLabel>
+                    <S.RadioToolBarInput
+                      type="radio"
+                      id="radio3"
+                      name="status"
+                      value="Тестирование"
+                      onChange={handleInputChange}
+                    />
+                    <S.RadioToolBarLabel htmlFor="radio3">
+                      Тестирование
+                    </S.RadioToolBarLabel>
 
-                <S.RadioToolBarInput
-                  type="radio"
-                  id="radio3"
-                  name="status"
-                  value="Готово"
-                  onChange={handleInputChange}
-                />
-                <S.RadioToolBarLabel htmlFor="radio3">
-                Готово
-                </S.RadioToolBarLabel>
-              </S.RadioToolbar>
-              </>
-
+                    <S.RadioToolBarInput
+                      type="radio"
+                      id="radio3"
+                      name="status"
+                      value="Готово"
+                      onChange={handleInputChange}
+                    />
+                    <S.RadioToolBarLabel htmlFor="radio3">
+                      Готово
+                    </S.RadioToolBarLabel>
+                  </S.RadioToolbar>
+                </>
               ) : (
                 <>
                   <S.StatusThemes>
@@ -200,7 +190,18 @@ export default function PopBrowse() {
                   )}
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
-              <CalendarForCurrentTask />
+              {isEdit ? (
+                <>
+                  <CalendarForCurrentTask
+                    selectedDate={selectedDate}
+                    setSelectedDate={setSelectedDate}
+                  />
+                </>
+              ) : (
+                <>
+                  <CalendarForCurrentTask />
+                </>
+              )}
             </S.PopBrowseWrap>
 
             {/* <div className="theme-down__categories theme-down">
