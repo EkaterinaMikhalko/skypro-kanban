@@ -1,29 +1,29 @@
 import { Link } from "react-router-dom";
 import { topicHeader } from "../../lib/topic.js";
 import * as S from "./Cards.styled.js"
+import { format } from "date-fns";
+import ru from "date-fns/locale/ru";
 
-function Cards({ title, topic, date, id }) {
+export default function Cards({ title, topic, date, id }) {
   return (
     <S.StyledCards>
       <S.CardsItem>
         <S.CardsCard>
-          {/* <div className="cards__card card"></div> */}
+        <Link to={`task/${id}`}>
           <S.CardGroup>
             <S.CardTopic $themeColor = {topicHeader[topic]}>
               <S.TopicText>{topic}</S.TopicText>
             </S.CardTopic>
-            <a href="#popBrowse" target="_self">
-              <S.CardBtn>
-                <div></div>
-                <div></div>
-                <div></div>
+              <S.CardBtn target="_self">
+                <S.CardBtnDiv></S.CardBtnDiv>
+                <S.CardBtnDiv></S.CardBtnDiv>
+                <S.CardBtnDiv></S.CardBtnDiv>
               </S.CardBtn>
-            </a>
           </S.CardGroup>
           <S.CardContent>
-            <Link to={`task/${id}`}>
-              <h3 className="card__title">{title}</h3>
-            </Link>
+            
+              <S.CardTitle>{title}</S.CardTitle>
+            
             <S.CardDate>
               <S.CardDateSvg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +53,12 @@ function Cards({ title, topic, date, id }) {
                   </clipPath>
                 </defs>
               </S.CardDateSvg>
-              <S.CardDateP>{date}</S.CardDateP>
+              <S.CardDateP>{format(date, "PP", { locale: ru })}</S.CardDateP>
             </S.CardDate>
           </S.CardContent>
+          </Link>
         </S.CardsCard>
       </S.CardsItem>
     </S.StyledCards>
   );
 }
-export default Cards;

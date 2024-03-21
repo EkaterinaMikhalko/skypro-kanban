@@ -5,6 +5,12 @@ export const StyledCards = styled.div`
   width: 100%;
   display: block;
   position: relative;
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+  }
+  
 `;
 export const CardsItem = styled.div`
   padding: 5px;
@@ -18,7 +24,7 @@ export const CardsCard = styled.div`
   height: 130px;
   background-color: #ffffff;
   border-radius: 10px;
-  display: flex;
+  //display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
@@ -62,6 +68,13 @@ export const CardBtn = styled.div`
   padding: 2px;
 `;
 
+export const CardBtnDiv = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #94A6BE;
+`;
+
 export const CardContent = styled.div`
   height: 64px;
   display: flex;
@@ -69,6 +82,14 @@ export const CardContent = styled.div`
   align-items: flex-start;
   justify-content: space-between;
 `;
+
+export const CardTitle = styled.h3`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 10px;
+`
 
 export const CardDate = styled.div`
   display: flex;
