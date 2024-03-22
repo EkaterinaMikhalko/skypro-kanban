@@ -20,7 +20,9 @@ export default function PopExit() {
                 logout();
                 navigate (appRoutes.LOGIN);
               }}>
+                <S.PopExitYesLink>
                 Да, выйти
+                </S.PopExitYesLink>
               </S.PopExitYes>
       
               <Link to={appRoutes.MAIN}>

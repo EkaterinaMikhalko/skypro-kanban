@@ -85,8 +85,17 @@ export const PopExitYes = styled.span`
   letter-spacing: -0.14px;
   color: #ffffff;
   margin-right: 10px;
-  cursor: pointer;
   ${hover01}
+`
+
+export const PopExitYesLink = styled.span`
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `
 
 export const PopExitNo = styled.span`
