@@ -4,6 +4,9 @@ import * as S from "./PopNewCard.styled";
 import { postTodo } from "../../../api";
 import { useUser } from "../../../hooks/useUser";
 import { useTask } from "../../../hooks/useTasks";
+import { appRoutes } from "../../../lib/appRoutes";
+import { Link } from "react-router-dom";
+import { topicHeader } from "../../../lib/topic";
 
 export default function PopNewCard() {
   const { updateTasks } = useTask();
@@ -48,7 +51,9 @@ export default function PopNewCard() {
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
-            <S.PopNewCardClose>&#10006;</S.PopNewCardClose>
+            <S.PopNewCardClose>
+              <Link to={appRoutes.MAIN}>&#10006;</Link>
+            </S.PopNewCardClose>
             <S.PopNewCardWrap>
               <S.PopNewCardForm id="formNewCard" action="#">
                 <S.FormNewBlock>
@@ -83,36 +88,48 @@ export default function PopNewCard() {
             <S.ProdCheckbox>
               <S.RadioToolbar>
                 <S.RadioToolBarInput
+                  $themeColor={topicHeader["Web Design"]}
                   type="radio"
                   id="radio1"
                   name="topic"
                   value="Web Design"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio1">
-                  Web Design
+                <S.RadioToolBarLabel
+                  htmlFor="radio1"
+                  $themeColor={topicHeader["Web Design"]}
+                >
+                  <S.TopicText>Web Design</S.TopicText>
                 </S.RadioToolBarLabel>
 
                 <S.RadioToolBarInput
+                  $themeColor={topicHeader["Research"]}
                   type="radio"
                   id="radio2"
                   name="topic"
                   value="Research"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio2">
-                  Research
+                <S.RadioToolBarLabel
+                  htmlFor="radio2"
+                  $themeColor={topicHeader["Research"]}
+                >
+                  <S.TopicText>Research</S.TopicText>
                 </S.RadioToolBarLabel>
 
                 <S.RadioToolBarInput
+                  $themeColor={topicHeader["Copywriting"]}
                   type="radio"
                   id="radio3"
                   name="topic"
                   value="Copywriting"
                   onChange={handleInputChange}
                 />
-                <S.RadioToolBarLabel htmlFor="radio3">
-                  Copywriting
+                <S.RadioToolBarLabel
+                  htmlFor="radio3"
+                  $themeColor={topicHeader["Copywriting"]}
+                >
+                  <S.TopicText>Copywriting</S.TopicText>
                 </S.RadioToolBarLabel>
               </S.RadioToolbar>
             </S.ProdCheckbox>

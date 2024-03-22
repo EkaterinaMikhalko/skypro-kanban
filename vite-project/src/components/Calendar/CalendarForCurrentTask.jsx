@@ -17,6 +17,7 @@ export default function CalendarForCurrentTask({
   return (
     <DayPicker
       mode="single"
+      required
       selected={selectedDate}
       onSelect={setSelectedDate}
       footer={footer}

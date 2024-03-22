@@ -7,7 +7,6 @@ import { useUser } from "../../hooks/useUser";
 
 export default function Header() {
   const { user } = useUser();
-  console.log (user)
   const [isOpened, setIsOpened] = useState(false);
   function togglePopup() {
     setIsOpened((prev) => !prev);

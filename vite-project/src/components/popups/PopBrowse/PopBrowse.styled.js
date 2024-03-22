@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { topicStyles } from "../../../lib/topic";
+import { hover01, hover03 } from "../../../styled/common/styled.common";
 
 export const PopBrowse = styled.div`
   /* display: none; */
@@ -61,6 +63,11 @@ export const PopBrowseTtlInput = styled.input`
   font-weight: 600;
   line-height: 24px;
 `;
+export const TopicText = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 10px;
+`;
 
 export const CategoriesTheme = styled.div`
   display: inline-block;
@@ -72,7 +79,15 @@ export const CategoriesTheme = styled.div`
   opacity: 0.4;
   display: block;
   opacity: 1 !important;
+  background-color: ${({ $themeColor }) =>
+    topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+
+  ${TopicText} {
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
+  }
 `;
+
+export const CategoriesThemeTopic = styled.p``;
 
 export const PopBrowseStatus = styled.div`
   margin-bottom: 11px;
@@ -200,10 +215,19 @@ export const PopBrowseBtnBrowse = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  margin-right: 8px;
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    margin-right: 0px;
+  }
 `;
 export const BtnGroup = styled.div`
-  width: 100%;
   margin-right: 8px;
+
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    margin-right: 0px;
+  }
 `;
 
 export const BtnBrowse = styled.button`
@@ -222,9 +246,10 @@ export const BtnBrowse = styled.button`
   width: 100%;
   height: 40px;
   color: #565eef;
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
+  ${hover03}
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    height: 40px;
   }
 `;
 
@@ -234,9 +259,7 @@ export const BtnBrowseClose = styled.span`
   border: none;
   outline: none;
   color: #ffffff;
-  &:hover {
-    background-color: #33399b;
-  }
+  ${hover01}
 `;
 export const PopBrowseBtnEdit = styled.div`
   display: flex;
@@ -252,14 +275,17 @@ export const PopBrowseBtnEdit = styled.div`
 `;
 
 export const BtnEditEdit = styled.span`
-  border-radius: 4px;
+  /* border-radius: 4px;
   background: #565eef;
   border: none;
   outline: none;
-  color: #ffffff;
-  &:hover {
-    background-color: #33399b;
-  }
+  color: #ffffff; */
+  border-radius: 4px;
+  border: 0.7px solid var(--palette-navy-60, #565eef);
+  outline: none;
+  background: transparent;
+  color: #565eef;
+  ${hover03}
 `;
 export const BtnEditCancel = styled.span`
   border-radius: 4px;
@@ -267,10 +293,7 @@ export const BtnEditCancel = styled.span`
   border: none;
   outline: none;
   color: #ffffff;
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
+  ${hover03}
 `;
 
 export const BtnEditClose = styled.span`
@@ -279,16 +302,41 @@ export const BtnEditClose = styled.span`
   border: none;
   outline: none;
   color: #ffffff;
-  :hover {
-    background-color: #33399b;
+  ${hover01}
+`;
+
+export const ProdCheckbox = styled.div`
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+`;
+
+export const RadioToolbar = styled.div``;
+
+export const RadioToolBarInput = styled.input`
+  display: none;
+  &:checked + label {
+    background-color: #d4dbe5;
+    border: 1px solid #1ca92e;
   }
 `;
 
-export const RadioToolbar = styled.div`
-`
-
-export const RadioToolBarInput = styled.input`
-`
-
 export const RadioToolBarLabel = styled.label`
-`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 10px;
+  display: inline-block;
+  padding: 2px 9px;
+  cursor: pointer;
+  border: 1px solid #dad0ff;
+  &:hover {
+    background-color: #d4dbe5;
+    border: 1px solid #1ca92e;
+  }
+  width: auto;
+  height: 20px;
+  padding: 5px 14px;
+  border-radius: 18px;
+`;

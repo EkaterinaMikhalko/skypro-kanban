@@ -11,6 +11,7 @@ export default function Calendar({ selectedDate, setSelectedDate }) {
   return (
     <DayPicker
       mode="single"
+      required
       selected={selectedDate}
       onSelect={setSelectedDate}
       footer={footer}

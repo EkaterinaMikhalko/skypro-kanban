@@ -27,7 +27,25 @@ export const HeaderNav = styled.nav`
   justify-content: center;
 `;
 
-export const HeaderLogoLight = styled.div``;
+export const HeaderLogoLight = styled.div`
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+
+  @keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+`;
+
 export const HeaderLogoImg = styled.img`
   width: 85px;
 `;
@@ -70,6 +88,7 @@ export const HeaderUser = styled.div`
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
+  cursor: pointer;
   &::after {
     content: "";
     display: block;
@@ -161,5 +180,5 @@ export const PopUserSetMail = styled.p`
 // `;
 
 export const ExitButton = styled.span`
-  ${hover03} 
+  ${hover03}
 `;

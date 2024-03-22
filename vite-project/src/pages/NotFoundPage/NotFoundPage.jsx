@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <NotFoundDiv>
       <Link to={appRoutes.MAIN}>
-        <NotFoundSvg img src="\public\images\not_found.svg"/>
+        <NotFoundSvg img src="\public\images\not_found.svg" />
       </Link>
     </NotFoundDiv>
   );

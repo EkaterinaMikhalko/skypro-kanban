@@ -6,6 +6,7 @@ import CalendarForCurrentTask from "../../Calendar/CalendarForCurrentTask";
 import { changeTodo, delTodo } from "../../../api";
 import { useUser } from "../../../hooks/useUser";
 import { useState } from "react";
+import { topicHeader } from "../../../lib/topic";
 
 export default function PopBrowse() {
   const { tasks, updateTasks } = useTask();
@@ -95,70 +96,74 @@ export default function PopBrowse() {
                 </>
               )}
 
-              <S.CategoriesTheme>
-                <p className="_orange">{currentTask.topic}</p>
+              <S.CategoriesTheme $themeColor={topicHeader[currentTask.topic]}>
+                <S.CategoriesThemeTopic className="_orange">
+                  <S.TopicText>{currentTask.topic}</S.TopicText>
+                </S.CategoriesThemeTopic>
               </S.CategoriesTheme>
             </S.PopBrowseTopBlock>
             <S.PopBrowseStatus>
               <S.StatusPSubttl>Статус</S.StatusPSubttl>
               {isEdit ? (
                 <>
-                  <S.RadioToolbar>
-                    <S.RadioToolBarInput
-                      type="radio"
-                      id="radio1"
-                      name="status"
-                      value="Без статуса"
-                      onChange={handleInputChange}
-                    />
-                    <S.RadioToolBarLabel htmlFor="radio1">
-                      Без статуса
-                    </S.RadioToolBarLabel>
+                  <S.ProdCheckbox>
+                    <S.RadioToolbar>
+                      <S.RadioToolBarInput
+                        type="radio"
+                        id="radio1"
+                        name="status"
+                        value="Без статуса"
+                        onChange={handleInputChange}
+                      />
+                      <S.RadioToolBarLabel htmlFor="radio1">
+                        Без статуса
+                      </S.RadioToolBarLabel>
 
-                    <S.RadioToolBarInput
-                      type="radio"
-                      id="radio2"
-                      name="status"
-                      value="Нужно сделать"
-                      onChange={handleInputChange}
-                    />
-                    <S.RadioToolBarLabel htmlFor="radio2">
-                      Нужно сделать
-                    </S.RadioToolBarLabel>
+                      <S.RadioToolBarInput
+                        type="radio"
+                        id="radio2"
+                        name="status"
+                        value="Нужно сделать"
+                        onChange={handleInputChange}
+                      />
+                      <S.RadioToolBarLabel htmlFor="radio2">
+                        Нужно сделать
+                      </S.RadioToolBarLabel>
 
-                    <S.RadioToolBarInput
-                      type="radio"
-                      id="radio3"
-                      name="status"
-                      value="В работе"
-                      onChange={handleInputChange}
-                    />
-                    <S.RadioToolBarLabel htmlFor="radio3">
-                      В работе
-                    </S.RadioToolBarLabel>
+                      <S.RadioToolBarInput
+                        type="radio"
+                        id="radio3"
+                        name="status"
+                        value="В работе"
+                        onChange={handleInputChange}
+                      />
+                      <S.RadioToolBarLabel htmlFor="radio3">
+                        В работе
+                      </S.RadioToolBarLabel>
 
-                    <S.RadioToolBarInput
-                      type="radio"
-                      id="radio3"
-                      name="status"
-                      value="Тестирование"
-                      onChange={handleInputChange}
-                    />
-                    <S.RadioToolBarLabel htmlFor="radio3">
-                      Тестирование
-                    </S.RadioToolBarLabel>
+                      <S.RadioToolBarInput
+                        type="radio"
+                        id="radio4"
+                        name="status"
+                        value="Тестирование"
+                        onChange={handleInputChange}
+                      />
+                      <S.RadioToolBarLabel htmlFor="radio4">
+                        Тестирование
+                      </S.RadioToolBarLabel>
 
-                    <S.RadioToolBarInput
-                      type="radio"
-                      id="radio3"
-                      name="status"
-                      value="Готово"
-                      onChange={handleInputChange}
-                    />
-                    <S.RadioToolBarLabel htmlFor="radio3">
-                      Готово
-                    </S.RadioToolBarLabel>
-                  </S.RadioToolbar>
+                      <S.RadioToolBarInput
+                        type="radio"
+                        id="radio5"
+                        name="status"
+                        value="Готово"
+                        onChange={handleInputChange}
+                      />
+                      <S.RadioToolBarLabel htmlFor="radio5">
+                        Готово
+                      </S.RadioToolBarLabel>
+                    </S.RadioToolbar>
+                  </S.ProdCheckbox>
                 </>
               ) : (
                 <>
