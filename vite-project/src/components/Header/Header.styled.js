@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { hover01, hover02, hover03 } from "../../styled/common/styled.common";
 
 export const StyledHeader = styled.header`
   width: 100%;
@@ -26,7 +27,25 @@ export const HeaderNav = styled.nav`
   justify-content: center;
 `;
 
-export const HeaderLogoLight = styled.div``;
+export const HeaderLogoLight = styled.div`
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+
+  @keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+`;
+
 export const HeaderLogoImg = styled.img`
   width: 85px;
 `;
@@ -39,14 +58,28 @@ export const HeaderBtnMainNew = styled.span`
   height: 30px;
   border-radius: 4px;
   background-color: #565eef;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   font-size: 14px;
   line-height: 1;
   font-weight: 500;
   margin-right: 20px;
-  &:hover {
-    background-color: #33399b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  ${hover01}
+  @media screen and (max-width: 495px) {
+    z-index: 3;
+    position: fixed;
+    left: 16px;
+    bottom: 30px;
+    top: auto;
+    width: calc(100vw - 32px);
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 0;
   }
 `;
 
@@ -59,6 +92,7 @@ export const HeaderUser = styled.div`
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
+  cursor: pointer;
   &::after {
     content: "";
     display: block;
@@ -71,13 +105,7 @@ export const HeaderUser = styled.div`
     margin: -6px 0 0 5px;
     padding: 0;
   }
-  &:hover {
-    color: #33399b;
-  }
-  &:hover::after {
-    border-left-color: #33399b;
-    border-bottom-color: #33399b;
-  }
+  ${hover02}
 `;
 
 export const HeaderPopUserSet = styled.div`
@@ -115,49 +143,46 @@ export const PopUserSetMail = styled.p`
   margin-bottom: 10px;
 `;
 
-export const PopUserSetTheme = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-`;
+// export const PopUserSetTheme = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 30px;
+// `;
 
-export const PopUserSetThemeText = styled.p`
-  color: #000;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
-`;
+// export const PopUserSetThemeText = styled.p`
+//   color: #000;
+//   font-size: 14px;
+//   line-height: 21px;
+//   letter-spacing: -0.14px;
+// `;
 
-export const PopUserSetThemeInput = styled.input`
-  position: relative;
-  width: 24px;
-  height: 13px;
-  border-radius: 100px;
-  background: #eaeef6;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background-color: #94a6be;
-    transition: 0.5s;
-  }
-  &:checked::before {
-    left: 12px;
-  }
-`;
+// export const PopUserSetThemeInput = styled.input`
+//   position: relative;
+//   width: 24px;
+//   height: 13px;
+//   border-radius: 100px;
+//   background: #eaeef6;
+//   outline: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 1px;
+//     left: 1px;
+//     width: 11px;
+//     height: 11px;
+//     border-radius: 50%;
+//     background-color: #94a6be;
+//     transition: 0.5s;
+//   }
+//   &:checked::before {
+//     left: 12px;
+//   }
+// `;
 
 export const ExitButton = styled.span`
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
+  ${hover03}
 `;

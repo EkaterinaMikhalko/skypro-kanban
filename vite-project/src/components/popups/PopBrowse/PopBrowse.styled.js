@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { topicStyles } from "../../../lib/topic";
+import { hover01, hover03 } from "../../../styled/common/styled.common";
 
 export const PopBrowse = styled.div`
   /* display: none; */
@@ -55,6 +57,18 @@ export const PopBrowseTtl = styled.h3`
   line-height: 24px;
 `;
 
+export const PopBrowseTtlInput = styled.input`
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+`;
+export const TopicText = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 10px;
+`;
+
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
@@ -65,7 +79,15 @@ export const CategoriesTheme = styled.div`
   opacity: 0.4;
   display: block;
   opacity: 1 !important;
+  background-color: ${({ $themeColor }) =>
+    topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+
+  ${TopicText} {
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
+  }
 `;
+
+export const CategoriesThemeTopic = styled.div``;
 
 export const PopBrowseStatus = styled.div`
   margin-bottom: 11px;
@@ -159,22 +181,64 @@ export const FormBrowseArea = styled.span`
   }
 `;
 
+export const FormBrowseAreaEdit = styled.input`
+  max-width: 370px;
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: #eaeef6;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  margin-top: 14px;
+  height: 200px;
+  &::-moz-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
+  }
+`;
+
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  margin-right: 8px;
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    margin-right: 0px;
+  }
 `;
 export const BtnGroup = styled.div`
-  width: 100%;
   margin-right: 8px;
-`;
-
-export const BtnBrowse = styled.button`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    margin-right: 0px;
+  }
+`;
+
+export const BtnBrowse = styled.button`
+  /* display: flex; */
+  /* flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between; */
   height: 30px;
   margin-bottom: 10px;
   padding: 0 14px;
@@ -183,12 +247,130 @@ export const BtnBrowse = styled.button`
   outline: none;
   background: transparent;
   margin-right: 8px;
-  width: 100%;
+  /* width: 100%; */
   height: 40px;
   color: #565eef;
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
+  ${hover03}
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    height: 40px;
   }
 `;
 
+export const BtnBrowseClose = styled.span`
+  /* border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff; */
+  width: 132px;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  ${hover01}
+`;
+export const PopBrowseBtnEdit = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 8px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0 14px;
+  width: 100%;
+  height: 40px;
+`;
+
+// export const BtnEditEdit = styled.span`
+//   /* border-radius: 4px;
+//   background: #565eef;
+//   border: none;
+//   outline: none;
+//   color: #ffffff; */
+//   border-radius: 4px;
+//   border: 0.7px solid var(--palette-navy-60, #565eef);
+//   outline: none;
+//   background: transparent;
+//   color: #565eef;
+//   ${hover03}
+// `;
+export const BtnEditCancel = styled.span`
+  /* border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff; */
+  width: 132px;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  ${hover03}
+`;
+
+// export const BtnEditClose = styled.span`
+//   border-radius: 4px;
+//   background: #565eef;
+//   border: none;
+//   outline: none;
+//   color: #ffffff;
+//   ${hover01}
+// `;
+
+export const ProdCheckbox = styled.div`
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+`;
+
+export const RadioToolbar = styled.div``;
+
+export const RadioToolBarInput = styled.input`
+  display: none;
+  &:checked + label {
+    background-color: #d4dbe5;
+    border: 1px solid #1ca92e;
+  }
+`;
+
+export const RadioToolBarLabel = styled.label`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 10px;
+  display: inline-block;
+  padding: 2px 9px;
+  cursor: pointer;
+  border: 1px solid #dad0ff;
+  &:hover {
+    background-color: #d4dbe5;
+    border: 1px solid #1ca92e;
+  }
+  width: auto;
+  height: 20px;
+  padding: 5px 14px;
+  border-radius: 18px;
+`;

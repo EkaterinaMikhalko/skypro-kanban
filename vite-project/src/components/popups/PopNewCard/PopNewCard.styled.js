@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { topicStyles } from "../../../lib/topic";
+import { hover01 } from "../../../styled/common/styled.common";
 
 export const PopNewCardDiv = styled.div`
   display: block;
@@ -150,9 +152,17 @@ export const FormNewCreate = styled.span`
   line-height: 1;
   color: #ffffff;
   float: right;
-  &:hover {
-    background-color: #33399b;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  ${hover01}
+`;
+
+export const TopicText = styled.p`
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
 `;
 
 export const ProdCheckbox = styled.div`
@@ -168,17 +178,37 @@ export const RadioToolbar = styled.div`
 `;
 
 export const RadioToolBarInput = styled.input`
-display: none;
-`
+  display: none;
+  &:checked + label {
+    opacity: 1;
+    //  background-color: #d0ffb7;
+    background-color: ${({ $themeColor }) =>
+      topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+    //  border: 1px solid #1CA92E;
+  }
+`;
 
 export const RadioToolBarLabel = styled.label`
-    display: inline-block;
-    padding: 2px 9px;
-    cursor: pointer;
-    border: 1px solid #DAD0FF;
-    &:hover {
-    background-color: #d0ffb7;
-    border: 1px solid #1CA92E;
-}
-`
+  display: inline-block;
+  padding: 2px 9px;
+  cursor: pointer;
+  border: 1px solid #dad0ff;
+  &:hover {
+    opacity: 1;
+    background-color: ${({ $themeColor }) =>
+      topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+    /* background-color: #d0ffb7;
+    border: 1px solid #1CA92E; */
+  }
+  width: auto;
+  height: 20px;
+  padding: 5px 14px;
+  border-radius: 18px;
+  opacity: 0.5;
+  background-color: ${({ $themeColor }) =>
+    topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
 
+  ${TopicText} {
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
+  }
+`;

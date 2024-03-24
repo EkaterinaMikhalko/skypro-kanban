@@ -1,11 +1,11 @@
 import Cards from "../Cards/Cards";
-import { ColumnTitle, MainColumn } from "./Column.styled";
+import { ColumnTitle, ColumnTitleP, MainColumn } from "./Column.styled";
 
 export default function Column({ title, cardList }) {
   return (
     <MainColumn>
       <ColumnTitle>
-        <p>{title}</p>
+        <ColumnTitleP>{title}</ColumnTitleP>
       </ColumnTitle>
       {cardList.map((task) => (
         <Cards

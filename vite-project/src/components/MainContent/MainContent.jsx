@@ -1,7 +1,7 @@
 import { Container } from "../../styled/common/styled.common";
 import { Main, MainBlock, StyledMainContent } from "./MainContent.styled";
 
-function MainContent({ children }) {
+export default function MainContent({ children }) {
   return (
     <Main>
       <Container>
@@ -12,4 +12,3 @@ function MainContent({ children }) {
     </Main>
   );
 }
-export default MainContent;
