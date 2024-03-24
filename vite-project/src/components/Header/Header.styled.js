@@ -58,12 +58,16 @@ export const HeaderBtnMainNew = styled.span`
   height: 30px;
   border-radius: 4px;
   background-color: #565eef;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   font-size: 14px;
   line-height: 1;
   font-weight: 500;
   margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
   ${hover01}
   @media screen and (max-width: 495px) {

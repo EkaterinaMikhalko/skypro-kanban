@@ -87,7 +87,7 @@ export const CategoriesTheme = styled.div`
   }
 `;
 
-export const CategoriesThemeTopic = styled.p``;
+export const CategoriesThemeTopic = styled.div``;
 
 export const PopBrowseStatus = styled.div`
   margin-bottom: 11px;
@@ -223,6 +223,10 @@ export const PopBrowseBtnBrowse = styled.div`
 `;
 export const BtnGroup = styled.div`
   margin-right: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
 
   @media screen and (max-width: 495px) {
     width: 100%;
@@ -231,10 +235,10 @@ export const BtnGroup = styled.div`
 `;
 
 export const BtnBrowse = styled.button`
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-between; */
   height: 30px;
   margin-bottom: 10px;
   padding: 0 14px;
@@ -243,7 +247,7 @@ export const BtnBrowse = styled.button`
   outline: none;
   background: transparent;
   margin-right: 8px;
-  width: 100%;
+  /* width: 100%; */
   height: 40px;
   color: #565eef;
   ${hover03}
@@ -254,11 +258,26 @@ export const BtnBrowse = styled.button`
 `;
 
 export const BtnBrowseClose = styled.span`
-  border-radius: 4px;
+  /* border-radius: 4px;
   background: #565eef;
   border: none;
   outline: none;
+  color: #ffffff; */
+  width: 132px;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
   color: #ffffff;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   ${hover01}
 `;
 export const PopBrowseBtnEdit = styled.div`
@@ -274,36 +293,51 @@ export const PopBrowseBtnEdit = styled.div`
   height: 40px;
 `;
 
-export const BtnEditEdit = styled.span`
+// export const BtnEditEdit = styled.span`
+//   /* border-radius: 4px;
+//   background: #565eef;
+//   border: none;
+//   outline: none;
+//   color: #ffffff; */
+//   border-radius: 4px;
+//   border: 0.7px solid var(--palette-navy-60, #565eef);
+//   outline: none;
+//   background: transparent;
+//   color: #565eef;
+//   ${hover03}
+// `;
+export const BtnEditCancel = styled.span`
   /* border-radius: 4px;
   background: #565eef;
   border: none;
   outline: none;
   color: #ffffff; */
+  width: 132px;
+  height: 30px;
+  background-color: #565eef;
   border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565eef);
+  border: 0;
   outline: none;
-  background: transparent;
-  color: #565eef;
-  ${hover03}
-`;
-export const BtnEditCancel = styled.span`
-  border-radius: 4px;
-  background: #565eef;
-  border: none;
-  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
   color: #ffffff;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
   ${hover03}
 `;
 
-export const BtnEditClose = styled.span`
-  border-radius: 4px;
-  background: #565eef;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  ${hover01}
-`;
+// export const BtnEditClose = styled.span`
+//   border-radius: 4px;
+//   background: #565eef;
+//   border: none;
+//   outline: none;
+//   color: #ffffff;
+//   ${hover01}
+// `;
 
 export const ProdCheckbox = styled.div`
   font-size: 14px;

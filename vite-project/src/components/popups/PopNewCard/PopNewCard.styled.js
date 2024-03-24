@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { topicStyles } from "../../../lib/topic";
+import { hover01 } from "../../../styled/common/styled.common";
 
 export const PopNewCardDiv = styled.div`
   display: block;
@@ -151,9 +152,11 @@ export const FormNewCreate = styled.span`
   line-height: 1;
   color: #ffffff;
   float: right;
-  &:hover {
-    background-color: #33399b;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  ${hover01}
 `;
 
 export const TopicText = styled.p`

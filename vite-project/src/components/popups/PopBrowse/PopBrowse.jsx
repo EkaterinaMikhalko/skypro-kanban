@@ -236,9 +236,9 @@ export default function PopBrowse() {
               <>
                 <S.PopBrowseBtnEdit>
                   <S.BtnGroup>
-                    <S.BtnEditEdit onClick={ChangeCard}>
+                    <S.BtnBrowse onClick={ChangeCard}>
                       <Link to={appRoutes.MAIN}>Сохранить</Link>
-                    </S.BtnEditEdit>
+                    </S.BtnBrowse>
                     <S.BtnEditCancel>
                       <Link to={appRoutes.MAIN}>Отменить</Link>
                     </S.BtnEditCancel>
@@ -246,9 +246,9 @@ export default function PopBrowse() {
                       <Link>Удалить задачу</Link>
                     </S.BtnBrowse>
                   </S.BtnGroup>
-                  <S.BtnEditClose>
+                  <S.BtnEditCancel>
                     <Link to={appRoutes.MAIN}>Закрыть</Link>
-                  </S.BtnEditClose>
+                  </S.BtnEditCancel>
                 </S.PopBrowseBtnEdit>
               </>
             )}
